@@ -23,13 +23,14 @@ function split (matcher, mapper, options) {
     matcher = /\r?\n/
 
   function emit(stream, piece) {
-    if(!piece) { return; // Empty string }
+    // Ignore empty string
+    if(!piece) { return; }
     if(mapper) {
       try {
         piece = mapper(piece)
       }
       catch (err) {
-        console.error('mapper errored out with piece', piece);
+        console.error('mapper errored out with piece', JSON.stringify(piece);
         return stream.emit('error', err)
       }
       if('undefined' !== typeof piece)
