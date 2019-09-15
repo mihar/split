@@ -30,7 +30,7 @@ function split (matcher, mapper, options) {
         piece = mapper(piece)
       }
       catch (err) {
-        console.error('mapper errored out with piece', JSON.stringify(piece);
+        console.error('mapper errored out with piece', JSON.stringify(piece));
         return stream.emit('error', err)
       }
       if('undefined' !== typeof piece)
