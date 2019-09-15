@@ -28,7 +28,8 @@ function split (matcher, mapper, options) {
         piece = mapper(piece)
       }
       catch (err) {
-        return stream.emit('error', err)
+        console.error('mapper errored out with piece', piece);
+        stream.emit('error', err)
       }
       if('undefined' !== typeof piece)
         stream.queue(piece)
